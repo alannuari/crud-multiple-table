@@ -1,0 +1,143 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 80%;
+    margin: 40px auto;
+    font-family: Helvetica;
+    font-weight: normal;
+    font-size: 14px;
+    background-color: #333;
+    box-sizing: border-box;
+}
+
+.logo {
+    text-align: center;
+}
+
+.logo img {
+    width: 300px;
+    border-radius: 30px 0 30px 0;
+    border: 1px solid #333;
+    box-shadow: 10px 10px 0 #333;
+    margin-bottom: 10px;
+}
+
+.input_section {
+    margin: 0 auto;
+    padding: 16px 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    border-color: #aaa;
+    background-color: white;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 6px;
+    display: block;
+}
+
+input {
+    padding: 8px 16px;
+    border: 1px solid #4b6587;
+}
+
+input[type='text'],
+input[type='number']:focus {
+    outline: none;
+}
+
+input[type='text'],
+input[type='number'] {
+    width: 100%;
+}
+
+.product_name,
+.customer_group,
+.price {
+    margin: 10px 0;
+}
+
+.customer_group {
+    display: flex;
+    flex-direction: column;
+}
+
+.radio_input {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn_center {
+    text-align: center;
+}
+
+button {
+    color: black;
+    border: 0;
+    padding: 8px 20px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.submit{
+    background-color: #ff8239;
+}
+
+.edit {
+    background-color: #e7e7e7;
+}
+
+.delete {
+    background-color: #ff3939;
+}
+
+.display_section {
+    margin: 20px auto;
+    padding: 16px;
+    border-radius: 10px;
+    max-width: 800px;
+    border-color: #aaa;
+    background-color: white;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    background-color: #4b6587;
+    color: white;
+}
+
+td {
+    text-align: center;
+}
+
+td.action {
+    display: flex;
+    justify-content: center;
+}
+
+td.action form {
+    margin: 0 4px;
+}
+
+th,
+td {
+    text-align: center;
+    padding: 16px;
+}
+
+tr:nth-child(even) {
+    background-color: #d2d2d2;
+}
+
+.shadow {
+    box-shadow: 0 5px 10px rgba(154, 160, 185, 0.5);
+}
