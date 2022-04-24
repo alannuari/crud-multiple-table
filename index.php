@@ -80,10 +80,10 @@ if (isset($_SESSION['error'])) {
 							<td class="price"><?php echo $item['price'] ?></td>
 							<td class="action">
 								<form action="edit.php?id=<?php echo $item['price_id'] ?>&product_name=<?php echo $item['product_name'] ?>" method="POST">
-									<button type="edit" name="edit" value="edit" class="edit">Edit</button>
+									<button type="submit" name="edit" value="edit" class="edit">Edit</button>
 								</form>
 								<form action="delete.php?id=<?php echo $item['price_id'] ?>&product_name=<?php echo $item['product_name'] ?>" method="POST">
-									<button type="delete" name="delete" value="delete" class="delete" onclick="return confirm('Yakin ingin menghapus data ?')">Delete</button>
+									<button type="submit" name="delete" value="delete" class="delete" onclick="return confirm('Yakin ingin menghapus data ?')">Delete</button>
 								</form>
 							</td>
 						</tr>

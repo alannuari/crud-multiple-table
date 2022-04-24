@@ -32,19 +32,6 @@ if (isset($_POST['submit'])) {
 	if (mysqli_num_rows(mysqli_query($conn, $check_sql))) {
 		$_SESSION['error'] = "<script language='javascript'>alert('Maaf terdapat data yang sama')</script>";
 	} else {
-		// $check_product_name_sql = "SELECT * FROM products WHERE product_name = '$product_name'";
-
-		// if (mysqli_num_rows(mysqli_query($conn, $check_product_name_sql))) {
-		// 	$data_product_name = $model->getData($check_product_name_sql)[0];
-			
-		// 	$product_id = $data_product_name["product_id"];
-
-		// 	$sql = "INSERT INTO price VALUES('', '$product_id', '$cg_id', '$price')";
-		// 	mysqli_query($conn, $sql);
-		// } else {
-			
-		// }
-
 		$sql = "UPDATE products INNER JOIN price 
 			ON products.product_id = price.product_id 
 			SET 
