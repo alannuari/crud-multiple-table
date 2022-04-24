@@ -57,7 +57,7 @@ if (isset($_POST['submit'])) {
 		<title>Test ICUBE by SIRCLO</title>
 	</head>
 	<body>
-		<section class="input_section shadow">
+		<section class="input_section">
 			<div class="logo">
 				<img src="img/logo.png" alt="icube"/>
 			</div>
