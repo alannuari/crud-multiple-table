@@ -73,7 +73,17 @@ input[type='number'] {
 }
 
 .btn_center {
+    margin-top: 10px;
     text-align: center;
+}
+
+.search_section {
+    margin: 20px auto;
+    padding: 16px 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    border-color: #aaa;
+    background-color: white;
 }
 
 button {
@@ -94,6 +104,10 @@ button {
 
 .delete {
     background-color: #ff3939;
+}
+
+.search{
+    background-color: #ff8239;
 }
 
 .display_section {

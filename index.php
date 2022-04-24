@@ -13,6 +13,28 @@ $sql = "SELECT product_name, customer_group, price, price_id
 
 $data = $model->getData($sql);
 
+if (isset($_POST['search'])) {
+	$keyword = $_POST['keyword'];
+
+	if ($keyword) {
+		$sql = "SELECT product_name, customer_group, price, price_id
+				FROM price, products, customer_group
+				WHERE price.product_id = products.product_id AND price.cg_id = customer_group.cg_id AND (product_name LIKE '%$keyword%' OR customer_group LIKE '%$keyword%')
+				ORDER BY product_name";
+
+		$data = $model->getData($sql);
+	} else {
+		$sql = "SELECT product_name, customer_group, price, price_id
+				FROM price, products, customer_group
+				WHERE price.product_id = products.product_id AND price.cg_id = customer_group.cg_id
+				ORDER BY product_name";
+
+		$data = $model->getData($sql);
+	}
+	
+
+}
+
 if (isset($_SESSION['error'])) {
 	echo $_SESSION['error'];
 	unset($_SESSION['error']);
@@ -58,6 +80,16 @@ if (isset($_SESSION['error'])) {
 				</div>
 				<div class="btn_center">
 					<button class="submit" type="submit" name="submit" value="submit" >Save</button>
+				</div>
+			</form>
+		</section>
+
+		<section class="search_section shadow">
+			<form action="" method="POST">
+				<label for="search">Search Product :</label>
+				<input type="text" name='keyword' placeholder='Masukkan keyword...' autocomplete="off">
+				<div class="btn_center">
+					<button type="submit" name='search' class="search" value="search">Search</button>
 				</div>
 			</form>
 		</section>
