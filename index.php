@@ -18,28 +18,6 @@ $sql = "SELECT product_name, customer_group, price, price_id
 
 $data = $model->getData($sql);
 
-if (isset($_POST['search'])) {
-	$keyword = $_POST['keyword'];
-
-	if ($keyword) {
-		$sql = "SELECT product_name, customer_group, price, price_id
-				FROM price, products, customer_group
-				WHERE price.product_id = products.product_id AND price.cg_id = customer_group.cg_id AND (product_name LIKE '%$keyword%' OR customer_group LIKE '%$keyword%')
-				ORDER BY product_name";
-
-		$data = $model->getData($sql);
-	} else {
-		$sql = "SELECT product_name, customer_group, price, price_id
-				FROM price, products, customer_group
-				WHERE price.product_id = products.product_id AND price.cg_id = customer_group.cg_id
-				ORDER BY product_name";
-
-		$data = $model->getData($sql);
-	}
-	
-
-}
-
 if (isset($_SESSION['error'])) {
 	echo $_SESSION['error'];
 	unset($_SESSION['error']);
@@ -54,6 +32,8 @@ if (isset($_SESSION['error'])) {
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="./css/style.css">
+		<script src="js/jquery-3.6.0.min.js"></script>
+		<script src="js/script.js"></script>
 		<title>Halaman Admin</title>
 	</head>
 	<body>
@@ -91,43 +71,40 @@ if (isset($_SESSION['error'])) {
 		</section>
 
 		<section class="search_section">
-			<form action="" method="POST">
-				<label for="search">Search Product :</label>
-				<input type="text" name='keyword' placeholder='Masukkan keyword...' autocomplete="off">
-				<div class="btn_center">
-					<button type="submit" name='search' class="search" value="search">Search</button>
-				</div>
-			</form>
+			<label for="search">Search Product :</label>
+			<input type="text" name='keyword' placeholder='Masukkan keyword...' autocomplete="off" id="search">
 		</section>
 
 		<section class="display_section">
-			<table>
-				<thead>
-					<tr>
-						<th>Product Name</th>
-						<th>Customer Group</th>
-						<th>Price</th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php foreach($data as $item) : ?>
+			<div id="container">
+				<table>
+					<thead>
 						<tr>
-							<td class="product-name"><?php echo $item['product_name'] ?></td>
-							<td class="customer-group"><?php echo $item['customer_group'] ?></td>
-							<td class="price"><?php echo $item['price'] ?></td>
-							<td class="action">
-								<form action="edit.php?id=<?php echo $item['price_id'] ?>&product_name=<?php echo $item['product_name'] ?>" method="POST">
-									<button type="submit" name="edit" value="edit" class="edit">Edit</button>
-								</form>
-								<form action="delete.php?id=<?php echo $item['price_id'] ?>&product_name=<?php echo $item['product_name'] ?>" method="POST">
-									<button type="submit" name="delete" value="delete" class="delete" onclick="return confirm('Yakin ingin menghapus data ?')">Delete</button>
-								</form>
-							</td>
+							<th>Product Name</th>
+							<th>Customer Group</th>
+							<th>Price</th>
+							<th></th>
 						</tr>
-					<?php endforeach ?>
-				</tbody>
-			</table>
+					</thead>
+					<tbody>
+						<?php foreach($data as $item) : ?>
+							<tr>
+								<td class="product-name"><?php echo $item['product_name'] ?></td>
+								<td class="customer-group"><?php echo $item['customer_group'] ?></td>
+								<td class="price"><?php echo $item['price'] ?></td>
+								<td class="action">
+									<form action="edit.php?id=<?php echo $item['price_id'] ?>&product_name=<?php echo $item['product_name'] ?>" method="POST">
+										<button type="submit" name="edit" value="edit" class="edit">Edit</button>
+									</form>
+									<form action="delete.php?id=<?php echo $item['price_id'] ?>&product_name=<?php echo $item['product_name'] ?>" method="POST">
+										<button type="submit" name="delete" value="delete" class="delete" onclick="return confirm('Yakin ingin menghapus data ?')">Delete</button>
+									</form>
+								</td>
+							</tr>
+						<?php endforeach ?>
+					</tbody>
+				</table>
+			</div>
 		</section>
 	</body>
 </html>
