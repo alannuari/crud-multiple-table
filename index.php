@@ -1,6 +1,11 @@
 <?php
 
-@session_start();
+session_start();
+
+if (!isset($_SESSION['login'])) {
+	header('Location: login.php');
+	exit;
+}
 
 include 'Model.php';
 
@@ -49,9 +54,12 @@ if (isset($_SESSION['error'])) {
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="./css/style.css">
-		<title>Test ICUBE by SIRCLO</title>
+		<title>Halaman Admin</title>
 	</head>
 	<body>
+		<section class="logout_section">
+			<a href="logout.php">Logout</a>
+		</section>
 		<section class="input_section">
 			<div class="logo">
 				<img src="img/logo.png" alt="icube"/>

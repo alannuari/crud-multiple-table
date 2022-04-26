@@ -14,6 +14,24 @@ body {
     box-sizing: border-box;
 }
 
+.logout_section {
+    padding: 6px 12px;
+    border-radius: 10px;
+    border-color: #aaa;
+    background-color: white;
+    margin: 10px auto;
+    display: flex;
+    justify-content: end;
+    max-width: 500px;
+}
+
+.logout_section a {
+    padding: 6px 12px;
+    border: 1px solid #333;
+    text-decoration: none;
+    color: #333;
+}
+
 .logo {
     text-align: center;
     max-width: 300px;
@@ -29,12 +47,29 @@ body {
 }
 
 .input_section {
-    margin: 0 auto;
+    margin: 10px auto;
     padding: 16px 30px;
     border-radius: 10px;
     max-width: 500px;
     border-color: #aaa;
     background-color: white;
+}
+
+.regist_section,
+.login_section {
+    display: block;
+    margin: 100px auto 0;
+    padding: 16px 30px;
+    border-radius: 10px;
+    max-width: 400px;
+    border-color: #aaa;
+    background-color: white;
+}
+
+.logo_regist,
+.logo_login {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 label {
@@ -54,13 +89,16 @@ input[type='number']:focus {
 }
 
 input[type='text'],
-input[type='number'] {
+input[type='number'], 
+input[type='password'] {
     width: 100%;
 }
 
 .product_name,
 .customer_group,
-.price {
+.price,
+.user_name,
+.password {
     margin: 10px 0;
 }
 
@@ -80,7 +118,7 @@ input[type='number'] {
 }
 
 .search_section {
-    margin: 20px auto;
+    margin: 10px auto;
     padding: 16px 30px;
     border-radius: 10px;
     max-width: 500px;
@@ -96,7 +134,9 @@ button {
     margin: 0 auto;
 }
 
-.submit{
+.submit,
+.regist,
+.login {
     background-color: #ff8239;
 }
 
@@ -113,7 +153,7 @@ button {
 }
 
 .display_section {
-    margin: 20px auto;
+    margin: 10px auto;
     padding: 16px;
     border-radius: 10px;
     max-width: 800px;
