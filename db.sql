@@ -12,18 +12,26 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 
--- Dumping database structure for icubetest
+-- Dumping database structure for db_test
 CREATE DATABASE IF NOT EXISTS `db_test` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `db_test`;
 
--- Dumping structure for table icubetest.customer_group
+-- Dumping structure for table db_test.users
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` smallint(6) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(50) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- Dumping structure for table db_test.customer_group
 CREATE TABLE IF NOT EXISTS `customer_group` (
   `cg_id` smallint(6) NOT NULL AUTO_INCREMENT,
   `customer_group` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`cg_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Dumping data for table icubetest.customer_group: ~2 rows (approximately)
+-- Dumping data for table db_test.customer_group: ~2 rows (approximately)
 DELETE FROM `customer_group`;
 /*!40000 ALTER TABLE `customer_group` DISABLE KEYS */;
 INSERT INTO `customer_group` (`cg_id`, `customer_group`) VALUES
@@ -31,7 +39,7 @@ INSERT INTO `customer_group` (`cg_id`, `customer_group`) VALUES
 	(2, 'Wholesale');
 /*!40000 ALTER TABLE `customer_group` ENABLE KEYS */;
 
--- Dumping structure for table icubetest.price
+-- Dumping structure for table db_test.price
 CREATE TABLE IF NOT EXISTS `price` (
   `price_id` smallint(6) NOT NULL AUTO_INCREMENT,
   `product_id` smallint(6) DEFAULT NULL,
@@ -43,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `price` (
   KEY `product_id` (`product_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
--- Dumping data for table icubetest.price: ~10 rows (approximately)
+-- Dumping data for table db_test.price: ~10 rows (approximately)
 DELETE FROM `price`;
 /*!40000 ALTER TABLE `price` DISABLE KEYS */;
 INSERT INTO `price` (`price_id`, `product_id`, `cg_id`, `price`) VALUES
@@ -59,14 +67,14 @@ INSERT INTO `price` (`price_id`, `product_id`, `cg_id`, `price`) VALUES
 	(10, 5, 2, 12);
 /*!40000 ALTER TABLE `price` ENABLE KEYS */;
 
--- Dumping structure for table icubetest.products
+-- Dumping structure for table db_test.products
 CREATE TABLE IF NOT EXISTS `products` (
   `product_id` smallint(6) NOT NULL AUTO_INCREMENT,
   `product_name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`product_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
--- Dumping data for table icubetest.products: ~5 rows (approximately)
+-- Dumping data for table db_test.products: ~5 rows (approximately)
 DELETE FROM `products`;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
 INSERT INTO `products` (`product_id`, `product_name`) VALUES
