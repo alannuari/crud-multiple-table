@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_name` varchar(50) DEFAULT NULL,
   `password` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 -- Dumping structure for table db_test.customer_group
 CREATE TABLE IF NOT EXISTS `customer_group` (
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `price` (
   UNIQUE KEY `product_id_cg_id` (`product_id`,`cg_id`),
   KEY `customer_group_id` (`cg_id`),
   KEY `product_id` (`product_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table db_test.price: ~10 rows (approximately)
 DELETE FROM `price`;
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `product_id` smallint(6) NOT NULL AUTO_INCREMENT,
   `product_name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`product_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table db_test.products: ~5 rows (approximately)
 DELETE FROM `products`;
